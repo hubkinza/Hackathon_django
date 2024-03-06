@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
 
 if os.path.isfile('env.py'):
     import env
@@ -28,7 +29,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = 'django-insecure-sb5%7ksid(*xe-qe-+hdrmb8^0d8suh_e(dym6al_3cb+4-)+p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if "DEBUG" in os.environ else False
+DEBUG = 'DEBUG' in os.environ
 
 ALLOWED_HOSTS = ['.gitpod.io','.herokuapp.com']
 CSRF_TRUSTED_ORIGINS =['https://*.gitpod.io','https://*.herokuapp.com']
@@ -90,12 +91,18 @@ WSGI_APPLICATION = 'studentlink.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+if "DEBUG" in os.environ:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get("DB_URL"))
+    }
+
 
 
 # Password validation
