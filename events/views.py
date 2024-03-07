@@ -205,3 +205,14 @@ def cancel_attendance(request, event_id):
 	if request.method == 'POST':
 		event.attendees.remove(request.user)
 		return redirect('list-events')
+
+def my_events(request):
+	if request.user.is_authenticated:
+		me = request.user.id
+		events = Event.objects.filter(attendees=me)
+		return render(request, 'events/my_events.html', {
+			'events':events
+			})
+	else:
+		message.success(request, "You aren't authorised to view this page.")
+		return redirect('home')
