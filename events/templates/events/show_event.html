@@ -23,10 +23,27 @@
 			<strong>Event Capacity:</strong> No maximum capacity.
 			{% endif %}
             </p>
-            1
+            {% if user.is_authenticated %}
+            {% if user in event.attendees.all %}
+            <form method="post" action="{% url 'cancel-attendance' event.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Cancel Attendance</button>
+            </form>
+            {% else %}
+            <form method="post" action="{% url 'attend-event' event.id %}">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
+            {% endif %}
+        {% endif %}
         </div>
         <div class="card-footer text-body-secondary">
-        2
+            {% if user.is_authenticated %}
+            {% if user == event.manager or user.is_superuser %}
+                <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
+                <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">Delete Event</a>
+            {% endif %}
+        {% endif %}
         </div>
     </div>
 	<br/>

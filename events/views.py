@@ -166,3 +166,42 @@ def search_events(request):
 	else:
 		return render(request, 'events/search_venues.html',
 		{})
+
+def delete_event(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	if request.user == event.manager or request.user.is_superuser:
+		event.delete()
+		messages.success(request, ("Event Deleted!"))
+		return redirect('list-events')
+	else:
+		messages.success(request, ("You aren't authorised to do that!"))
+		return redirect('list-events')
+
+def update_event(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	if request.user.is_superuser:
+		form = EventFormAdmin(request.POST or None, instance=event)
+	else:
+		form = EventForm(request.POST or None, instance=event)
+	if form.is_valid():
+		form.save()
+		return redirect('list-events')
+	return render(request, 'events/update_event.html',
+		{'event': event,
+		'form': form})
+
+def attend_event(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	if event.max_attendees == 0 or event.attendees.count() < event.max_attendees:
+		if request.method == 'POST':
+			event.attendees.add(request.user)
+			return redirect('list-events')
+	else:
+		messages.success(request, "Sorry, this event is already fully booked!")
+	return redirect('list-events')
+	
+def cancel_attendance(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	if request.method == 'POST':
+		event.attendees.remove(request.user)
+		return redirect('list-events')
