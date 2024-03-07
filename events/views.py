@@ -57,3 +57,21 @@ def add_venue(request):
 		if 'submitted' in request.GET:
 			submitted = True
 	return render(request, 'events/add_venue.html', {'form': form, 'submitted':submitted})
+
+def show_venue(request, venue_id):
+	venue = Venue.objects.get(pk=venue_id)
+	venue_owner = User.objects.get(pk=venue.owner)
+	return render(request, 'events/show_venue.html',
+		{'venue': venue,
+		'venue_owner': venue_owner})
+
+def list_venues(request):
+	# venue_list = Venue.objects.all().order_by('name')
+
+	#Set up Pagination
+	p = Paginator(Venue.objects.all().order_by('name'), 10)
+	page = request.GET.get('page')
+	venues = p.get_page(page)
+	return render(request, 'events/list_venues.html',
+		{'venues': venues}
+		)

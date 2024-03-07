@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header">
+      <strong>Venue</strong>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ venue }}</h5>
+      <p class="card-text">	
+           <strong>Address:</strong> {{ venue.address }} <br>
+          {{ venue.postcode }} <br>
+          <strong>Contact:</strong> {{ venue.phone }} <br>
+          <!-- <strong>Email:</strong> {{ venue.email_address }} <br> -->
+          <strong>Website: </strong><a href="{{ venue.web }}">{{ venue.web }}</a><br>
+          <strong>Owner:</strong> {{ venue_owner }} <br>
+          <strong>Owner's Email:</strong> {{ venue_owner.email }}
+          <br>
+          {% if "placeholder" in venue.venue_image.url %}
+          <img class="scale" src="{% static 'images/default.jpeg' %}" alt="placeholder image">
+          {% else %}
+          <img class="scale" src=" {{ post.featured_image.url }}" alt="{{ post.title }}">
+          {% endif %}
+      </p>
+    </div>
+</div>
+<br/>
+{% endblock  %}
