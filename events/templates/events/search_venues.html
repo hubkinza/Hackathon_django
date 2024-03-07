@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if searched %}
+<h1>You searched for {{ searched }}</h1>
+<br>
+    {% for venue in venues %}
+    <div class="card">
+        <div class="card-header">
+            <strong>Venue</strong>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'show-venue' venue.id %}">{{ venue }}</a></h5>
+            <p class="card-text">	
+ 		    <strong>Address:</strong> {{ venue.address }} <br>
+		    {{ venue.postcode }} <br>
+		    <strong>Contact:</strong> {{ venue.phone }} <br>
+		    <strong>Email:</strong> {{ venue.email_address }} <br>
+		    <strong>Website: </strong><a href="{{ venue.web }}">{{ venue.web }}</a><br>
+	</p>
+  </div>
+</div>
+<br>
+	{% endfor %}
+
+{% else %}
+	<h1>Hey! You forgot to search for a venue...</h1>
+{% endif %}
+
+
+{% endblock %}
