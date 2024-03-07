@@ -3,7 +3,7 @@ import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
 from django.http import HttpResponseRedirect
-from .models import Events, Venue
+from .models import Event, Venue
 from django.contrib.auth.models import User
 from .forms import VenueForm
 from django.contrib import messages

@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Venue, Events
+from .models import Venue, Event
 
 # Create a venue form
 class VenueForm(ModelForm):
