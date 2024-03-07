@@ -31,6 +31,34 @@ body {
     background-color: #b3bfba;
 }
 
+.btn {
+    background-color: #332533;
+    color: #b3bfba;
+}
+
 
 /*--------------------------------------------Homepage Styles*/
 
+center {
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+}
+
+center > h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Playfair", sans-serif;
+}
+
+.card {
+    display: flex;
+    justify-self: center;
+}
+
+.card-title {
+    font-family: "Playfair", sans-serif;
+}
+
+.card-text {
+    font-family: "Lato", sans-serif;
+}
