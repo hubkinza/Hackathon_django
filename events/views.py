@@ -66,8 +66,6 @@ def show_venue(request, venue_id):
 		'venue_owner': venue_owner})
 
 def list_venues(request):
-	# venue_list = Venue.objects.all().order_by('name')
-
 	#Set up Pagination
 	p = Paginator(Venue.objects.all().order_by('name'), 10)
 	page = request.GET.get('page')
@@ -75,3 +73,36 @@ def list_venues(request):
 	return render(request, 'events/list_venues.html',
 		{'venues': venues}
 		)
+
+def search_venues(request):
+	if request.method == "POST":
+		searched = request.POST['searched']
+		venues = Venue.objects.filter(name__contains=searched)
+		return render(request, 'events/search_venues.html',
+		{'searched': searched,
+		'venues':venues})
+	else:
+		return render(request, 'events/search_venues.html',
+		{})
+
+def update_venue(request, venue_id):
+	venue = Venue.objects.get(pk=venue_id)
+	form = VenueForm(request.POST or None, request.FILES or None, instance=venue)
+	if form.is_valid():
+		form.save()
+		return redirect('list-venues')
+
+	return render(request, 'events/update_venue.html',
+		{'venue': venue,
+		'form': form})
+
+def delete_venue(request, venue_id):
+	venue = Venue.objects.get(pk=venue_id)
+	venue_owner = User.objects.get(pk=venue.owner)
+	if request.user == venue_owner or request.user.is_superuser:
+		venue.delete()
+		messages.success(request, ("Venue Deleted!"))
+		return redirect('list-venues')
+	else:
+		messages.success(request, ("You aren't authorised to do that!"))
+		return redirect('list-venues')

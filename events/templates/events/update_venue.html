@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+{% if user.is_authenticated %}
+	{% if user.id == venue.owner or user.is_superuser %}
+<h1>Update Venue...</h1>
+<br>
+<form action="" method=POST enctype="multipart/form-data">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<br>
+	<input type="submit" name="" value="Update" class="btn btn-secondary">
+</form>
+	{% endif %}
+{% else %}
+	<h1>Sorry! You must be registered/logged in to view this page...</h1>
+	<a href="{% url 'login' %}">Login Here</a>
+	<br>
+	<a href="{% url 'register_user' %}">Register Here</a>
+{% endif %}
+
+{% endblock %}
