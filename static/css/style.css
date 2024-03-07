@@ -5,6 +5,7 @@
 
 body {
     background-color: #e8e5e6;
+    width: 100vw;
 }
 
 
@@ -36,6 +37,12 @@ body {
     color: #b3bfba;
 }
 
+.venues,
+.events {
+    position: relative;
+    padding-left: 20px;
+}
+
 
 /*--------------------------------------------Homepage Styles*/
 
@@ -48,15 +55,17 @@ center > h1 {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: "Playfair", sans-serif;
+    font-weight: 400;
 }
 
 .card {
-    display: flex;
-    justify-self: center;
+    position: relative;
 }
 
-.card-title {
+.card-title,
+.card-header {
     font-family: "Playfair", sans-serif;
+    font-size: 20px;
 }
 
 .card-text {
