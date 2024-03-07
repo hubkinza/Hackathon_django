@@ -1,3 +1,64 @@
-body{
-    background-color: red;
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap') 
+
+
+/*--------------------------------------------General Stles*/ 
+
+body {
+    background-color: #e8e5e6;
+}
+
+
+/*--------------------------------------------Fonts*/ 
+.navbar-brand {
+    font-family: "Playfair", sans-serif;
+    font-weight: 600;
+    color: #332533;
+}
+
+.nav-link {
+    font-family:"Lato", sans-serif;
+    color: #332533;
+}
+
+.dropdown-item {
+    font-family:"Lato", sans-serif;
+    color: #332533;
+}
+
+
+/*--------------------------------------------Navbar Styles*/
+.navbar {
+    background-color: #b3bfba;
+}
+
+.btn {
+    background-color: #332533;
+    color: #b3bfba;
+}
+
+
+/*--------------------------------------------Homepage Styles*/
+
+center {
+    font-family: "Lato", sans-serif;
+    font-size: 20px;
+}
+
+center > h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: "Playfair", sans-serif;
+}
+
+.card {
+    display: flex;
+    justify-self: center;
+}
+
+.card-title {
+    font-family: "Playfair", sans-serif;
+}
+
+.card-text {
+    font-family: "Lato", sans-serif;
 }
