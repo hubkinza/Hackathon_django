@@ -43,3 +43,17 @@ def index(request, year=datetime.now().year, month=datetime.now().strftime('%B')
 		# 'event_list': event_list,
 		})
 
+def add_venue(request):
+	submitted = False
+	if request.method == 'POST':
+		form = VenueForm(request.POST, request.FILES)
+		if form.is_valid():
+			venue = form.save(commit=False)
+			venue.owner = request.user.id # logged in user
+			venue.save()
+			return HttpResponseRedirect('/add_venue?submitted=True') 
+	else: 
+		form = VenueForm
+		if 'submitted' in request.GET:
+			submitted = True
+	return render(request, 'events/add_venue.html', {'form': form, 'submitted':submitted})

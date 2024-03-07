@@ -32,18 +32,17 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Venues
                     </a>
-                </li>
-                <ul class="dropdown-menu">
+                  <ul class="dropdown-menu">
                     <li>
                      2   
                     </li>
-                  {% if user.is_authenticated %}
+                    {% if user.is_authenticated %}
                     <li>
-                        3
+                      <a class="dropdown-item" href="{% url 'add-venue' %}">Add Venue</a>
                     </li>
-                  {% endif %}
-                </ul>
-              </li>
+                    {% endif %}
+                  </ul>
+                </li>
               {% if user.is_authenticated %}
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
