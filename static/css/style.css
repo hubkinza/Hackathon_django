@@ -8,6 +8,14 @@ body {
     width: 100vw;
 }
 
+a:link,
+a:visited,
+a:hover,
+.nav-link:focus, .nav-link:hover {
+    text-decoration: none;
+    color: #332533;
+}
+
 
 /*--------------------------------------------Fonts*/ 
 .navbar-brand {
@@ -56,6 +64,7 @@ center > h1 {
     padding-bottom: 20px;
     font-family: "Playfair", sans-serif;
     font-weight: 400;
+    color: #332533;
 }
 
 .card {
@@ -66,8 +75,16 @@ center > h1 {
 .card-header {
     font-family: "Playfair", sans-serif;
     font-size: 20px;
+    color: #332533;
 }
 
 .card-text {
     font-family: "Lato", sans-serif;
+    color: #332533;
+    
+}
+
+.month {
+    background-color: #b3bfba;
+    color: #332533;
 }
