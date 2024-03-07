@@ -135,3 +135,22 @@ def add_event(request):
 		if 'submitted' in request.GET:
 			submitted = True
 	return render(request, 'events/add_event.html', {'form': form, 'submitted':submitted})
+
+def list_events(request):
+	#Set up Pagination
+	p = Paginator(Event.objects.all().order_by('event_date'), 3)
+	page = request.GET.get('page')
+	events = p.get_page(page)
+	return render(request, 'events/event.html',
+		{'events': events}
+		)
+
+def all_events(request):
+	events_list = Event.objects.all().order_by('event_date')
+	return render(request, 'events/events_list.html',
+		{'events_list': events_list})
+
+def show_event(request, event_id):
+	event = Event.objects.get(pk=event_id)
+	return render(request, 'events/show_event.html',
+		{'event': event})

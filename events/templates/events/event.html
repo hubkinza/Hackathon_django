@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+	<h1>Events...</h1>
+	<br>
+	{% for event in events %}
+    <div class="card">
+        <div class="card-header">
+            <strong><a href="{% url 'show-event' event.id %}">{{ event.name }}</a></strong>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Venue: {{ event.venue }}</h5>
+            <p class="card-text">
+            <strong>Date:</strong> {{ event.event_date }} <br>
+            <strong>Venue Website:</strong> {{ event.venue.web }} <br>
+           	<strong>Event Manager:</strong> {{ event.manager }} <br>
+            <strong>About:</strong> {{ event.description }} <br>
+            <strong>Attendees:</strong><br>
+            {% for user in event.attendees.all %}
+                {{ user }}<br>
+            {% endfor %}
+            {% if event.max_attendees > 0 %}
+			<strong>Event Capacity:</strong> {{ event.max_attendees }} people.
+			{% else %}
+			<strong>Event Capacity:</strong> No maximum capacity.
+			{% endif %}
+            </p>
+            1
+        </div>
+        <div class="card-footer text-body-secondary">
+        2
+        </div>
+    </div>
+	<br><br>
+	{% endfor %}
+	<!-- <br><br>
+	{{ venues }}<br>
+	Has Previous: {{ venues.has_previous }}<br>
+	Has Next: {{ venues.has_next }}<br>
+	Current Page: {{ venues.number }}<br>
+	Number of Pages: {{ venues.paginator.num_pages }} -->
+	<!-- <hr><br><br> -->
+
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">
+	{% if events.has_previous %}
+			<li class="page-item"><a class="page-link" href="?page=1">&laquo First</a></li>
+			<li class="page-item"><a class="page-link" href="?page={{ events.previous_page_number }}">Previous</a></li>
+	{% endif %}
+			<li class="page-item disabled"><a href="#" class="page-link">Page {{ events.number }} of {{ events.paginator.num_pages }}</a></li>
+	{% if events.has_next %}
+			<li class="page-item"><a class="page-link" href="?page={{ events.next_page_number }}">Next</a></li>
+			<li class="page-item"><a class="page-link" href="?page={{ events.paginator.num_pages }}">Last &raquo</a></li>
+			{% endif %}
+		</ul>
+	</nav>
+
+{% endblock %}
