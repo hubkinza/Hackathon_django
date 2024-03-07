@@ -211,8 +211,9 @@ def my_events(request):
 		me = request.user.id
 		events = Event.objects.filter(attendees=me)
 		return render(request, 'events/my_events.html', {
-			'events':events
+			'events':events,
+			'messages': messages.get_messages(request),
 			})
 	else:
-		message.success(request, "You aren't authorised to view this page.")
-		return redirect('home')
+		return redirect('index')
+		messages.success(request, "You aren't authorised to view this page.")
