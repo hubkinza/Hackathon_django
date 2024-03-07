@@ -154,3 +154,15 @@ def show_event(request, event_id):
 	event = Event.objects.get(pk=event_id)
 	return render(request, 'events/show_event.html',
 		{'event': event})
+
+def search_events(request):
+	if request.method == "POST":
+		searched = request.POST['searched']
+		events = Event.objects.filter(name__contains=searched)
+
+		return render(request, 'events/search_events.html',
+		{'searched': searched,
+		'events':events})
+	else:
+		return render(request, 'events/search_venues.html',
+		{})
