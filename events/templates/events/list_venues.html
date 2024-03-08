@@ -13,7 +13,7 @@
 			{% if user.is_authenticated %}
 				{% if user.id == venue.owner or user.is_superuser %}
 			<td align="right">
-				<a href="{% url 'update-venue' venue.id %}" class="btn btn-outline-secondary btn-sm">Update</a>
+				<a href="{% url 'update-venue' venue.id %}" class="btn btn-outline-secondary btn-sm" style="color:#b3bfba">Update</a>
 				<a href="{% url 'delete-venue' venue.id %}" class="btn btn-outline-danger btn-sm">Delete</a>
 			</td><br>
 				{% endif %}
