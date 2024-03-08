@@ -5,7 +5,7 @@
 
 body {
     background-color: #e8e5e6;
-    width: 100vw;
+    max-width: 100vw;
 }
 
 a:link,
@@ -33,6 +33,7 @@ h1 {
     text-align: center;
     border-radius: 25px;
     background-color: #b3bfba;
+    margin-bottom: 20px;
 }
 
 /*--------------------------------------------Fonts*/ 
