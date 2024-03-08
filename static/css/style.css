@@ -88,3 +88,14 @@ center > h1 {
     background-color: #b3bfba;
     color: #332533;
 }
+
+
+/*--------------------------------------------Events page Styles*/
+.btn-outline-danger {
+    background-color: #dc3545;
+    color: #332533;
+}
+
+#update {
+    color: #b3bfba;
+}
