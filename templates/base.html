@@ -31,8 +31,10 @@
                       <li><a class="dropdown-item" href="{% url 'list-events' %}">
                         All Events</a>
                       </li>
+                      {% if user.is_authenticated %}
                       <li><a class="dropdown-item" href="{% url 'add-event' %}">Add an Event</a></li>
                       <li><a class="dropdown-item" href="{% url 'my-events' %}">My Events</a></li>
+                      {% endif %}
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
@@ -53,14 +55,14 @@
               {% if user.is_authenticated %}
               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  4
+                  <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
               {% else %}
                 <li class="nav-item">
-                 5
+                  <a class="nav-link" href="{% url 'register_user' %}">Register</a>
                 </li>
                 <li class="nav-item">
-                  6
+                  <a class="nav-link" href="{% url 'login' %}">Login</a>
                 </li>
               </ul>
               {% endif %}
@@ -74,12 +76,10 @@
                 <input class="form-control me-2" type="search" placeholder="Search Events" aria-label="Search" name="searched">
                 <button class="btn btn-outline-secondary event-btn" type="submit">Search</button>
               </form>
-              7
-
-        </ul>
-      </div>
-    </div>
-  </nav>
+            </ul>
+          </div>
+        </div>
+    </nav>
   {% block content %}
   {% endblock %}
   <!-- javascript -->
