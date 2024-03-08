@@ -17,9 +17,23 @@ a:hover,
 }
 
 h1 {
-    color: #332533;  
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #332533;
+    text-align: center;  
 }
 
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card {
+    display: block;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #b3bfba;
+}
 
 /*--------------------------------------------Fonts*/ 
 .navbar-brand {
@@ -99,3 +113,10 @@ center > h1 {
     background-color: #dc3545;
     color: #332533;
 }
+
+
+
+
+/*--------------------------------------------Media Queries*/
+
+@media
