@@ -126,5 +126,6 @@ The above colors are used for font color, link and answer buttons.
    * Returning visitor
 ## Bugs
 ## Deployment
+https://ci-kinza-studentlink-dabc4af86684.herokuapp.com/list_venues
 ## Credits
 
