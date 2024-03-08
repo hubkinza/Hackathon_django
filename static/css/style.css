@@ -36,6 +36,15 @@ h1 {
     margin-bottom: 20px;
 }
 
+/*--------------------------------------------Image Styling*/
+
+img {
+    margin-top: 20px;
+    border-radius: 25%;
+    max-width: 100%;
+    height: auto;
+}
+
 /*--------------------------------------------Fonts*/ 
 .navbar-brand {
     font-family: "Playfair", sans-serif;
@@ -115,8 +124,15 @@ center > h1 {
     color: #332533;
 }
 
+/*--------------------------------------------View Venues Styles*/
 
+.card-body {
+    margin-top: 20px;
+}
 
+.venue-card {
+    margin-top: 50px;
+}
 
 /*--------------------------------------------Media Queries*/
 
