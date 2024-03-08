@@ -55,10 +55,11 @@
     {% endfor %}
 
     {% if user.is_authenticated %}
-        <form method="post">
+        <form action="" method=POST enctype="mutlipart/form-data">
             {% csrf_token %}
-            <textarea>{{ form.content }}</textarea>
-            <button type="submit">Add Comment</button>
+            {{ form.as_p }}
+            <br>
+            <input type="submit" name="" value="Add Comment" class="btn btn-secondary">
         </form>
     {% endif %}
 	<br/>
