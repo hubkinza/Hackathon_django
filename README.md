@@ -4,6 +4,8 @@
 
 ![image](https://github.com/hubkinza/Hackathon_django/assets/76822546/8e992e69-e6fa-4ee5-b9eb-e5e75fb22d79)
 
+![wireframe](https://github.com/hubkinza/Hackathon_django/assets/76822546/643625de-6617-49e9-bad5-663a2397b0d1)
+
 ## Features
 User sign up 
 ![login](https://github.com/hubkinza/Hackathon_django/assets/76822546/74d1b966-d275-4e6c-9057-e7271bfac169)
