@@ -70,12 +70,14 @@
 
 ## Font
 
-* Quicksand, sans-serif - main font.
+* Playfairfor headers
+* Lato for regular text
 
 
 
 ## Colors
 
+![Possible hackathon 3 palette](https://github.com/hubkinza/Hackathon_django/assets/76822546/9e35f76f-4d9c-482e-b895-d9f43bb07080)
 
 The above colors are used for font color, link and answer buttons.
 
