@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Venue, Event
+from .models import Venue, Event, Review, Comment
 
 # Create a venue form
 class VenueForm(ModelForm):
@@ -70,3 +70,13 @@ class EventForm(ModelForm):
 			'attendees': forms.SelectMultiple(attrs={'class': 'form-control', 'placeholder': 'Attendees'}),
 			'max_attendees' : forms.NumberInput(attrs={'min': 0})
 		}
+
+class ReviewForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['title', 'content']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['content']

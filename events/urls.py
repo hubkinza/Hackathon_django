@@ -18,4 +18,6 @@ urlpatterns =[
    path('attend_event/<event_id>', views.attend_event, name='attend-event'),
    path('cancel_attendance/<event_id>', views.cancel_attendance, name="cancel-attendance"),
    path('my_events', views.my_events, name='my-events'),
+   path('reviews/', views.review_list, name='review_list'),
+   path('reviews/<int:pk>/', views.review_detail, name='review_detail')
 ]

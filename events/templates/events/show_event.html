@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!-- <center> -->
+<!-- <center> --> <br><br>
 <div class="card">
         <div class="card-header">
             <strong>{{ event.name }}</strong>
@@ -45,6 +45,23 @@
             {% endif %}
         {% endif %}
         </div>
-    </div>
+</div>
+{% for review in reviews %}
+    <h2><a href="{% url 'review_detail' review.pk %}">{{ review.title }}</a></h2>
+    <p>{{ review.content|linebreaks }}</p>
+
+    {% for comment in review.comments.all %}
+        <p>{{ comment.author }}: {{ comment.content|linebreaks }}</p>
+    {% endfor %}
+
+    {% if user.is_authenticated %}
+        <form action="" method=POST enctype="mutlipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" name="" value="Add Comment" class="btn btn-secondary">
+        </form>
+    {% endif %}
 	<br/>
+{% endfor %}
 {% endblock %}

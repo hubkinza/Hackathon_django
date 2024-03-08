@@ -49,4 +49,23 @@ class Event(models.Model):
 		else:
 			thing = "Future"
 		return thing
+
+class Review(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    author = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+		
+
+class Comment(models.Model):
+    review = models.ForeignKey(Review, related_name='comments', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Comment by {self.author} on {self.review}"
 	

@@ -1,11 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 import calendar
 from calendar import HTMLCalendar
 from datetime import datetime
 from django.http import HttpResponseRedirect
-from .models import Event, Venue
+from .models import Event, Venue, Review, Comment
 from django.contrib.auth.models import User
-from .forms import VenueForm, EventFormAdmin, EventForm
+from .forms import VenueForm, EventFormAdmin, EventForm, ReviewForm, CommentForm
 from django.contrib import messages
 from django.core.paginator import Paginator
 
@@ -152,8 +152,21 @@ def all_events(request):
 
 def show_event(request, event_id):
 	event = Event.objects.get(pk=event_id)
-	return render(request, 'events/show_event.html',
-		{'event': event})
+	reviews = Review.objects.all()  # Include your logic to get reviews
+	form = CommentForm()  # Instantiate the comment form
+	if request.method == "POST":
+		form = CommentForm(request.POST)
+		if form.is_valid():
+			comment = form.save(commit=False)
+			review = reviews.first()
+			comment.review = review
+			comment.author = request.user
+			comment.save()
+			return redirect('review_detail', pk=review.pk)
+		else:
+			form = CommentForm()
+	return render(request, 'events/show_event.html', 
+	{'event': event, 'reviews': reviews, 'form': form})
 
 def search_events(request):
 	if request.method == "POST":
@@ -217,3 +230,22 @@ def my_events(request):
 	else:
 		return redirect('index')
 		messages.success(request, "You aren't authorised to view this page.")
+
+def review_list(request):
+    reviews = Review.objects.all()
+    return render(request, 'reviews/review_list.html', {'reviews': reviews})
+
+def review_detail(request, pk):
+    review = get_object_or_404(Review, pk=pk)
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.review = review
+            comment.author = request.user
+            comment.save()
+            return redirect('review_detail', pk=review.pk)
+    else:
+        form = CommentForm()
+    return render(request, 'events/add_comment.html', {'review': review, 'form': form})
+
