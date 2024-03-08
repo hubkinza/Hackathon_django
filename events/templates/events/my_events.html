@@ -32,7 +32,20 @@
           {% if user.is_authenticated %}
               {% if user == event.manager or user.is_superuser %}
               <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
-              <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">Delete Event</a>  
+              <button onclick="document.getElementById('id01').style.display='block'" class="btn btn-outline-danger btn-sm">Delete Event</button>
+        <div id="id01" class="modal">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">X</span>
+            <form class="modal-content" action="/action_page.php">
+              <div class="container">
+                <h1>Delete Event</h1>
+                <p>Are you sure you want to delete your event?</p>
+                <div class="clearfix">
+                  <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                  <a href="{% url 'delete-event' event.id %}" class="deletebtn btn btn-outline-danger btn-sm">Delete</a>
+                </div>
+              </div>
+            </form>
+          </div>  
               {% endif %}
           {% endif %}
       </div>
