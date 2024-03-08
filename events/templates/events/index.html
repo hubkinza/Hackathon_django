@@ -66,76 +66,13 @@
 </div>
 {% endfor %}
 {% else %}
+<center>
 Sorry... There are no events this month...
+</center>
 {% endif %}
-   <!-- <h2>this is the index file</h2> -->
-   <center>
-      {% if user.is_authenticated %}
-      <h1>Hello {{ name }}! Events for {{ month }} {{ year }}</h1>
-      {% else %}
-      <h1>Hello! To sign up to our events please register or login!</h1>
-      {% endif %}
-      <br>
-      As of {{ time }}
-      <br><br><br>
-      {{ cal|safe }}
-      <br><br>
-      <h3>Events this month...</h3>
-  </center>
-    {% if event_list %}
-      {% for event in event_list %}
-          <div class="card">
-              <div class="card-header">
-                  <strong>{{ event.name }}</strong>
-              </div>
-              <div class="card-body">
-                  <h5 class="card-title">Venue: {{ event.venue }}</h5>
-                  <p class="card-text">
-                      <strong>Date:</strong> {{ event.event_date }} <br>
-                      <strong>Venue Website:</strong> {{ event.venue.web }} <br>
-                      <strong>Event Manager:</strong> {{ event.manager }} <br>
-                      <strong>About:</strong> {{ event.description }} <br>
-                      <strong>Attendees:</strong><br>
-                      {% for user in event.attendees.all %}
-                          {{ user }}<br>
-                      {% endfor %}
-                      {% if event.max_attendees > 0 %}
-               <strong>Event Capacity:</strong> {{ event.max_attendees }} people.
-               {% else %}
-               <strong>Event Capacity:</strong> No maximum capacity.
-               {% endif %}
-                  </p>
-                  {% if user.is_authenticated %}
-                  {% if user in event.attendees.all %}
-                      <form method="post" action="{% url 'cancel-attendance' event.id %}">
-                          {% csrf_token %}
-                          <button type="submit" class="btn btn-primary">Cancel Attendance</button>
-                      </form>
-                  {% else %}
-                      <form method="post" action="{% url 'attend-event' event.id %}">
-                          {% csrf_token %}
-                          <button type="submit" class="btn btn-primary">Sign Up</button>
-                      </form>
-                  {% endif %}
-                  {% endif %}
-              </div>
-              <div class="card-footer text-body-secondary">
-                  {% if user.is_authenticated %}
-                      {% if user == event.manager or user.is_superuser %}
-                          <a href="{% url 'update-event' event.id %}" class="btn btn-outline-secondary btn-sm">Update Event</a>
-                          <a href="{% url 'delete-event' event.id %}" class="btn btn-outline-danger btn-sm">Delete Event</a>
-                      {% endif %}
-                  {% endif %}
-              </div>
-          </div>
-      {% endfor %}
-  {% else %}
-      Sorry... There are no events this month...
-  {% endif %}
-  {{messages.success}}
 <br><br><br>
 <center>
-    Copyright (c) {{ current_year }}
+Copyright (c) {{ current_year }}
 </center>
 <br><br>
 
