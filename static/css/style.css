@@ -44,7 +44,7 @@ img {
     height: auto;
 }
 
-/*--------------------------------------------Fonts*/
+/*--------------------------------------------Text/Fonts*/
 .navbar-brand {
     font-family: "Playfair", sans-serif;
     font-weight: 600;
@@ -53,9 +53,15 @@ img {
 
 .nav-link,
 label,
-.dropdown-item {
+.dropdown-item,
+p, ul {
     font-family: "Lato", sans-serif;
     color: #332533;
+}
+
+p,
+label {
+    font-size: 20px;
 }
 
 
@@ -154,6 +160,4 @@ center>h1 {
     text-align: center;
 }
 
-/*--------------------------------------------Media Queries*/
-
-@media
+/*--------------------------------------------Register Styles*/
