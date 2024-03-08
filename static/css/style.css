@@ -5,8 +5,36 @@
 
 body {
     background-color: #e8e5e6;
+    max-width: 100vw;
 }
 
+a:link,
+a:visited,
+a:hover,
+.nav-link:focus, .nav-link:hover {
+    text-decoration: none;
+    color: #332533;
+}
+
+h1 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #332533;
+    text-align: center;  
+}
+
+.row {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card {
+    display: block;
+    text-align: center;
+    border-radius: 25px;
+    background-color: #b3bfba;
+    margin-bottom: 20px;
+}
 
 /*--------------------------------------------Fonts*/ 
 .navbar-brand {
@@ -36,6 +64,12 @@ body {
     color: #b3bfba;
 }
 
+.venues,
+.events {
+    position: relative;
+    padding-left: 20px;
+}
+
 
 /*--------------------------------------------Homepage Styles*/
 
@@ -48,17 +82,42 @@ center > h1 {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: "Playfair", sans-serif;
+    font-weight: 400;
+    color: #332533;
 }
 
 .card {
-    display: flex;
-    justify-self: center;
+    position: relative;
 }
 
-.card-title {
+.card-title,
+.card-header {
     font-family: "Playfair", sans-serif;
+    font-size: 20px;
+    color: #332533;
 }
 
 .card-text {
     font-family: "Lato", sans-serif;
+    color: #332533;
+    
 }
+
+.month {
+    background-color: #b3bfba;
+    color: #332533;
+}
+
+
+/*--------------------------------------------Events page Styles*/
+.btn-outline-danger {
+    background-color: #dc3545;
+    color: #332533;
+}
+
+
+
+
+/*--------------------------------------------Media Queries*/
+
+@media

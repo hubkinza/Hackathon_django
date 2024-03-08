@@ -66,15 +66,15 @@
                 </li>
               </ul>
               {% endif %}
-              <form class="d-flex" method=POST action="{% url 'search-venues' %}">
+              <form class="d-flex venues" method=POST action="{% url 'search-venues' %}">
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search Venues" aria-label="Search" name="searched">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                <button class="btn btn-outline-secondary venues-btn" type="submit">Search</button>
               </form>
-              <form class="d-flex" method=POST action="{% url 'search-events' %}">
+              <form class="d-flex events" method=POST action="{% url 'search-events' %}">
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search Events" aria-label="Search" name="searched">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                <button class="btn btn-outline-secondary event-btn" type="submit">Search</button>
               </form>
             </ul>
           </div>
