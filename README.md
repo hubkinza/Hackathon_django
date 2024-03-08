@@ -1,5 +1,8 @@
 
 ## UX
+*Wireframes
+
+![image](https://github.com/hubkinza/Hackathon_django/assets/76822546/8e992e69-e6fa-4ee5-b9eb-e5e75fb22d79)
 
 ## Features
 User sign up 
