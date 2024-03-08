@@ -1,17 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap') 
-
-
-/*--------------------------------------------General Stles*/ 
+@import url('https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&https://fonts.googleapis.com/css2?family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap')
+/*--------------------------------------------General Stles*/
 
 body {
-    background-color: #e8e5e6;
-    max-width: 100vw;
+    backgrouond-color: #e8e5e6;
+    max-width: 100%;
 }
 
 a:link,
 a:visited,
 a:hover,
-.nav-link:focus, .nav-link:hover {
+.nav-link:focus,
+.nav-link:hover {
     text-decoration: none;
     color: #332533;
 }
@@ -20,7 +19,7 @@ h1 {
     padding-top: 20px;
     padding-bottom: 20px;
     color: #332533;
-    text-align: center;  
+    text-align: center;
 }
 
 .row {
@@ -36,27 +35,40 @@ h1 {
     margin-bottom: 20px;
 }
 
-/*--------------------------------------------Fonts*/ 
+/*--------------------------------------------Image Styling*/
+
+img {
+    margin-top: 20px;
+    border-radius: 25%;
+    max-width: 100%;
+    height: auto;
+}
+
+/*--------------------------------------------Text/Fonts*/
 .navbar-brand {
     font-family: "Playfair", sans-serif;
     font-weight: 600;
     color: #332533;
 }
 
-.nav-link {
-    font-family:"Lato", sans-serif;
+.nav-link,
+label,
+.dropdown-item,
+p, ul {
+    font-family: "Lato", sans-serif;
     color: #332533;
 }
 
-.dropdown-item {
-    font-family:"Lato", sans-serif;
-    color: #332533;
+p,
+label {
+    font-size: 20px;
 }
 
 
 /*--------------------------------------------Navbar Styles*/
 .navbar {
     background-color: #b3bfba;
+    max-width: auto;
 }
 
 .btn {
@@ -76,9 +88,10 @@ h1 {
 center {
     font-family: "Lato", sans-serif;
     font-size: 20px;
+    max-width: 100vw;
 }
 
-center > h1 {
+center>h1 {
     padding-top: 20px;
     padding-bottom: 20px;
     font-family: "Playfair", sans-serif;
@@ -100,7 +113,7 @@ center > h1 {
 .card-text {
     font-family: "Lato", sans-serif;
     color: #332533;
-    
+
 }
 
 .month {
@@ -115,9 +128,36 @@ center > h1 {
     color: #332533;
 }
 
+/*--------------------------------------------View Venues Styles*/
 
+.card-body {
+    margin-top: 20px;
+}
 
+.venue-card {
+    margin-top: 50px;
+}
 
-/*--------------------------------------------Media Queries*/
+/*--------------------------------------------All Venues Styles*/
 
-@media
+.table {
+    background-color: #e8e5e6;
+}
+
+.table:hover {
+    background-color: #b3bfba;
+}
+
+/*--------------------------------------------Add form Styles*/
+
+.form-control,
+.form-select {
+    font-family: 'Lato', sans-serif;
+    font-weight: bolder;
+    color: #332533;
+    background-color: #b3bfba;
+    max-width: 100vw;
+    text-align: center;
+}
+
+/*--------------------------------------------Register Styles*/
