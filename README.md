@@ -1,7 +1,13 @@
 
 ## UX
 
+## Features
+User sign up 
+![login](https://github.com/hubkinza/Hackathon_django/assets/76822546/74d1b966-d275-4e6c-9057-e7271bfac169)
 
+Home page with calender
+
+![home page](https://github.com/hubkinza/Hackathon_django/assets/76822546/bae60524-2417-412f-8bb1-7c66922f2b35)
 
 ## User Stories
 
