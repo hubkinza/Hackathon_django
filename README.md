@@ -118,3 +118,9 @@ Adding a comments and reviews section
 https://ci-kinza-studentlink-dabc4af86684.herokuapp.com/list_venues
 ## Credits
 
+https://codemy.com/
+I think therefore I blog 
+Net ninja - https://www.youtube.com/channel/UCW5YeuERMmlnqo4oq8vwUpg
+W3 schools - https://www.w3schools.com/howto/howto_css_modals.asp
+
+
