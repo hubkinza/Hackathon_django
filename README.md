@@ -1,5 +1,31 @@
 
+## UX
+## Wireframes
 
+![image](https://github.com/hubkinza/Hackathon_django/assets/76822546/8e992e69-e6fa-4ee5-b9eb-e5e75fb22d79)
+
+![wireframe](https://github.com/hubkinza/Hackathon_django/assets/76822546/643625de-6617-49e9-bad5-663a2397b0d1)
+
+## Font
+
+* Playfairfor headers
+* Lato for regular text
+
+
+
+## Colors
+
+![Possible hackathon 3 palette](https://github.com/hubkinza/Hackathon_django/assets/76822546/9e35f76f-4d9c-482e-b895-d9f43bb07080)
+
+The above colors are used for font color, link and answer buttons.
+
+## Features
+User sign up 
+![login](https://github.com/hubkinza/Hackathon_django/assets/76822546/74d1b966-d275-4e6c-9057-e7271bfac169)
+
+Home page with calender
+
+![home page](https://github.com/hubkinza/Hackathon_django/assets/76822546/bae60524-2417-412f-8bb1-7c66922f2b35)
 
 ## User Stories
 
@@ -55,33 +81,7 @@
 
 
 
-## UX
-## Wireframes
 
-![image](https://github.com/hubkinza/Hackathon_django/assets/76822546/8e992e69-e6fa-4ee5-b9eb-e5e75fb22d79)
-
-![wireframe](https://github.com/hubkinza/Hackathon_django/assets/76822546/643625de-6617-49e9-bad5-663a2397b0d1)
-
-## Font
-
-* Playfairfor headers
-* Lato for regular text
-
-
-
-## Colors
-
-![Possible hackathon 3 palette](https://github.com/hubkinza/Hackathon_django/assets/76822546/9e35f76f-4d9c-482e-b895-d9f43bb07080)
-
-The above colors are used for font color, link and answer buttons.
-
-## Features
-User sign up 
-![login](https://github.com/hubkinza/Hackathon_django/assets/76822546/74d1b966-d275-4e6c-9057-e7271bfac169)
-
-Home page with calender
-
-![home page](https://github.com/hubkinza/Hackathon_django/assets/76822546/bae60524-2417-412f-8bb1-7c66922f2b35)
 
 
 ## Technologies used
