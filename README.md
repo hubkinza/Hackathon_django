@@ -1,3 +1,4 @@
+![image](https://github.com/hubkinza/Hackathon_django/assets/76822546/94d91ac1-cf6a-4509-8059-f43945c66b58)
 
 ## UX
 ## Wireframes
