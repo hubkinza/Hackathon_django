@@ -1,4 +1,9 @@
+## Am i responsive ?
+
+
 ![image](https://github.com/hubkinza/Hackathon_django/assets/76822546/94d91ac1-cf6a-4509-8059-f43945c66b58)
+
+See the deployed website here (https://ci-kinza-studentlink-dabc4af86684.herokuapp.com/)
 
 ## UX
 ## Wireframes
